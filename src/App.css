@@ -1,0 +1,44 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.navLogo{
+    font-weight: bold;
+}
+.nav-options{
+    font-weight: bold;
+    font-size: 20px;
+}
+.col1Principal{
+    list-style: none;
+    border: none;
+}
+.row .col .card{
+    border: none;
+}
+.tituloCol1{
+    font-weight: bold;
+    font-size: 20px;
+}
+.text-species{
+    font-size: 20px;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+.selector-species{
+    font-family: sans-serif;
+    font-size: 22px;
+    border: none;
+    background: #212529;
+    color: white;
+    border-bottom: 1px solid rgb(70, 209, 65);
+
+}
+.footer{
+    height: 180px;
+    margin-top: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 50px rgb(102, 102, 102);
+
+}
