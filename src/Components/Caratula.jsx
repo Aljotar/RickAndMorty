@@ -1,4 +1,4 @@
-import { Card, Col, Container, Image, Row } from "react-bootstrap";
+import { Card, Image } from "react-bootstrap";
 import "./caratula.css";
 
 export default function Caratula({ caratula }) {
