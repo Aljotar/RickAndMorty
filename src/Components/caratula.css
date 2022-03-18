@@ -1,30 +1,18 @@
-*{
-    justify-content: center;
-}
 .card-noticia{
     width: 30rem;
-    background-color: rgba(102, 102, 102, 0.5);
-    color: rgb(252, 252, 252);
-    border-radius: 10px;
+    color: rgb(112, 112, 112);
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px black;
 
 }
 .card-noticia img{
-    height: 100%;
+    height: auto;
 }
 .Card-Title{
     font-size: 30px;
     font-weight: 700;
-    border-bottom: 2px solid rgb(148, 255, 153);
+    border-bottom: 2px solid rgb(251, 191, 191);
     transition: 0.5s;
-}
-.Card-Title:hover{
-    /*border-bottom: 4px solid rgb(113, 253, 120);*/
-    color: rgb(22, 245, 41,0.7);
-    border: 5px solid white;
-    border-radius: 15px solid;
-    transition: 1s;
-    border-bottom: none;
-    border-top: none;
 }
 .Card-Text{
     font-family: sans-serif;
@@ -32,12 +20,9 @@
     color: rgb(253, 253, 253);
 
 }
-.Card-Text:hover{
-    color: rgb(158, 255, 67);
-}
 .Card-Text2{
     font-family: sans-serif;
     font-size: 18;
-    color: rgb(171, 238, 38,0.8);
+    color: rgba(238, 95, 38, 0.8);
 }
 

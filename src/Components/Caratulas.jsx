@@ -4,10 +4,8 @@ import axios from "axios";
 import { Button, Spinner } from "react-bootstrap";
 import React from "react";
 
-export default function Caratulas(props) {
+export default function Caratulas({props}) {
   const [caratulas, setCaratulas] = useState([]);
-  const [species, setSpecies] = useState("");
-  const [status, setSstatus] = useState("");
   const [pagina, setPagina] = useState(1);
   const [loading, setLoading] = useState(true);
 
@@ -15,21 +13,15 @@ export default function Caratulas(props) {
     setLoading(true);
     const request = async () => {
       const response = await axios.get(
-        `https://rickandmortyapi.com/api/character/?species=${species}&page=${pagina}&status=${status}`
+        `https://api.tvmaze.com/search/shows?q=Animation`
       );
-      const info = response.data.results;
+      const info = response.data;
+      console.log(info);
       setCaratulas(info);
       setLoading(false);
     };
     request();
-  }, [species, pagina, status]);
-
-  const changeSpecies = (event) => {
-    setSpecies(event.target.value);
-  };
-  const changeStatus = (event) => {
-    setSstatus(event.target.value);
-  };
+  }, [pagina]);
 
   const clickPagina = () => {
     setPagina(pagina - 1);
@@ -41,50 +33,23 @@ export default function Caratulas(props) {
 
   const anteriorDisabled = pagina === 1;
   return (
-    <div className="text-center mt-4">
+    <div className="principal p-0">
       {loading ? (
         <Spinner animation="border" role="status" variant="primary">
           <span className="visually-hidden">Loading...</span>
         </Spinner>
       ) : (
         <>
-          <div className="d-flex">
-            <form className="mx-5">
-              <label className="text-white text-species" htmlFor="species">
-                Species
-              </label>
-              <select
-                className="mx-4 selector-species"
-                name="species"
-                id="Species"
-                onChange={changeSpecies}
-              >
-                <option value="Human">Human</option>
-                <option value="Alien">Alien</option>
-                <option value="Disease">Disease</option>
-                <option value="Animal">Animal</option>
-                <option value="Mythological Creature">
-                  Mythological Creature
-                </option>
-                <option value="Cronenberg">Cronenberg</option>
-              </select>
-            </form>
-            <form className="mx-5">
-              <label className="text-white text-species" htmlFor="status">
-                Status
-              </label>
-              <select
-                className="mx-3 selector-species"
-                name="status"
-                id="Status"
-                onChange={changeStatus}
-              >
-                <option value="Alive">Alive</option>
-                <option value="Dead">Dead</option>
-                <option value="unknown">unknown</option>
-              </select>
-            </form>
-          </div>
+          <h2 className="text-white"><svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="25"
+          height="25"
+          fill="currentColor"
+          class="bi bi-tv mx-2"
+          viewBox="0 0 16 16"
+        >
+          <path d="M2.5 13.5A.5.5 0 0 1 3 13h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zM13.991 3l.024.001a1.46 1.46 0 0 1 .538.143.757.757 0 0 1 .302.254c.067.1.145.277.145.602v5.991l-.001.024a1.464 1.464 0 0 1-.143.538.758.758 0 0 1-.254.302c-.1.067-.277.145-.602.145H2.009l-.024-.001a1.464 1.464 0 0 1-.538-.143.758.758 0 0 1-.302-.254C1.078 10.502 1 10.325 1 10V4.009l.001-.024a1.46 1.46 0 0 1 .143-.538.758.758 0 0 1 .254-.302C1.498 3.078 1.675 3 2 3h11.991zM14 2H2C0 2 0 4 0 4v6c0 2 2 2 2 2h12c2 0 2-2 2-2V4c0-2-2-2-2-2z" />
+        </svg>Peliculas</h2>
           <div className="d-flex flex-wrap">{mapCaratulas}</div>
           <Button
             variant="outline-success"
